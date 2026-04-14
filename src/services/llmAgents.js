@@ -1,10 +1,10 @@
 export async function createBusinessAgent(anthropic, context, { buildPrompt }) {
-  console.log("[agent:business] building prompt");
-  console.log("[agent:business] context", {
-    industry: context.industry,
-    location: context.location,
-    service: context.service
-  });
+  // console.log("[agent:business] building prompt");
+  // console.log("[agent:business] context", {
+  //   industry: context.industry,
+  //   location: context.location,
+  //   service: context.service
+  // });
   return anthropic.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 500,
@@ -20,12 +20,12 @@ export async function createBusinessAgent(anthropic, context, { buildPrompt }) {
 }
 
 export async function createCustomerAgent(anthropic, context, { buildPrompt }) {
-  console.log("[agent:customer] building prompt");
-  console.log("[agent:customer] context", {
-    industry: context.industry,
-    location: context.location,
-    service: context.service
-  });
+  // console.log("[agent:customer] building prompt");
+  // console.log("[agent:customer] context", {
+  //   industry: context.industry,
+  //   location: context.location,
+  //   service: context.service
+  // });
   return anthropic.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 500,
@@ -41,12 +41,12 @@ export async function createCustomerAgent(anthropic, context, { buildPrompt }) {
 }
 
 export async function createGrowthAgent(anthropic, context, { buildPrompt }) {
-  console.log("[agent:growth] building prompt");
-  console.log("[agent:growth] context", {
-    industry: context.industry,
-    location: context.location,
-    service: context.service
-  });
+  // console.log("[agent:growth] building prompt");
+  // console.log("[agent:growth] context", {
+  //   industry: context.industry,
+  //   location: context.location,
+  //   service: context.service
+  // });
   return anthropic.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 700,
@@ -78,16 +78,16 @@ export async function createSynthesisAgent(
     previousOutput
   }
 ) {
-  console.log("[agent:synthesis] building prompt");
-  console.log("[agent:synthesis] inputs", {
-    industry,
-    location,
-    service,
-    hasBusiness: Boolean(business),
-    hasCustomer: Boolean(customer),
-    hasGrowth: Boolean(growth),
-    hasEnrichment: Boolean(enrichment)
-  });
+  // console.log("[agent:synthesis] building prompt");
+  // console.log("[agent:synthesis] inputs", {
+  //   industry,
+  //   location,
+  //   service,
+  //   hasBusiness: Boolean(business),
+  //   hasCustomer: Boolean(customer),
+  //   hasGrowth: Boolean(growth),
+  //   hasEnrichment: Boolean(enrichment)
+  // });
 
   const prompt = buildPrompt({
     industry,

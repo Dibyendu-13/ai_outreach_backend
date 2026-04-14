@@ -3,14 +3,7 @@ import { createSalesIntelligenceReport } from "../services/generateService.js";
 export async function generateReport(req, res) {
   try {
     const { industry, location, service, businessName, website } = req.body || {};
-    console.log("[controller] POST /api/generate", {
-      industry,
-      location,
-      service,
-      businessName,
-      website
-    });
-
+    
     if (!industry || !location || !service) {
       console.log("[controller] validation failed");
       return res.status(400).json({
@@ -18,7 +11,6 @@ export async function generateReport(req, res) {
       });
     }
 
-    console.log("[controller] validation passed");
     const report = await createSalesIntelligenceReport({
       industry,
       location,
@@ -27,7 +19,6 @@ export async function generateReport(req, res) {
       website
     });
 
-    console.log("[controller] report generated");
     return res.json(report);
   } catch (error) {
     console.error("[controller] generateReport error:", error);

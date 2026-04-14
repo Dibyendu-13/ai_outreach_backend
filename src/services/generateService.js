@@ -131,17 +131,16 @@ export async function createSalesIntelligenceReport({ industry, location, servic
 }
 
 function parseAgentResponse(response, fallbackContext) {
-  console.log("[service] parsing agent response");
+  // console.log("[service] parsing agent response");
   const text = response.content
     .filter((block) => block.type === "text")
     .map((block) => block.text)
     .join("");
 
-  console.log("[service] Claude response received");
 
   try {
     const json = extractJson(text);
-    console.log("[service] JSON block extracted");
+    // console.log("[service] JSON block extracted");
     return JSON.parse(json);
   } catch (error) {
     console.log("[service] parse failed, returning mock response", error.message);

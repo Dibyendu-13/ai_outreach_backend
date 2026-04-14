@@ -23,13 +23,13 @@ function extractMeta(html, name) {
 }
 
 export async function enrichBusinessContext({ businessName, website, industry, location, service }) {
-  console.log("[enrichment] start", {
-    businessName,
-    website,
-    industry,
-    location,
-    service
-  });
+  // console.log("[enrichment] start", {
+  //   businessName,
+  //   website,
+  //   industry,
+  //   location,
+  //   service
+  // });
 
   if (!website) {
     console.log("[enrichment] no website provided, using contextual inference only");
@@ -45,7 +45,7 @@ export async function enrichBusinessContext({ businessName, website, industry, l
   }
 
   try {
-    console.log("[enrichment] fetching website", website);
+    // console.log("[enrichment] fetching website", website);
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
 
@@ -59,7 +59,7 @@ export async function enrichBusinessContext({ businessName, website, industry, l
     clearTimeout(timeout);
 
     const html = await response.text();
-    console.log("[enrichment] website HTML fetched", { bytes: html.length });
+    // console.log("[enrichment] website HTML fetched", { bytes: html.length });
     const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
     const title = titleMatch?.[1]?.trim() || "";
     const description = extractMeta(html, "description") || extractMeta(html, "og:description");
@@ -74,7 +74,7 @@ export async function enrichBusinessContext({ businessName, website, industry, l
       h2Matches.length && `H2s: ${h2Matches.map((m) => stripHtml(m[1])).join(" | ")}`
     ].filter(Boolean);
 
-    console.log("[enrichment] website fetched successfully");
+    // console.log("[enrichment] website fetched successfully");
 
     return {
       source: "website",

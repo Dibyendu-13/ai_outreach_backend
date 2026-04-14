@@ -1,5 +1,5 @@
 export function buildBusinessAgentPrompt({ industry, location, service, businessName, website, enrichment }) {
-  console.log("[prompt:business] building prompt");
+  // console.log("[prompt:business] building prompt");
   return `Return JSON only with:
 {
   "whatTheyLikelyDo": "",
@@ -20,7 +20,7 @@ Make it specific and realistic.`;
 }
 
 export function buildCustomerAgentPrompt({ industry, location, service, businessName, website, enrichment }) {
-  console.log("[prompt:customer] building prompt");
+  // console.log("[prompt:customer] building prompt");
   return `Return JSON only with:
 {
   "idealCustomerProfile": [],
@@ -41,7 +41,7 @@ Make it specific and realistic.`;
 }
 
 export function buildGrowthAgentPrompt({ industry, location, service, businessName, website, enrichment }) {
-  console.log("[prompt:growth] building prompt");
+  // console.log("[prompt:growth] building prompt");
   return `Return JSON only with:
 {
   "whyTheyAreNotScaling": [],
@@ -83,7 +83,7 @@ export function buildSynthesisPrompt({
   repairError,
   previousOutput
 }) {
-  console.log("[prompt:synthesis] building prompt");
+  // console.log("[prompt:synthesis] building prompt");
   return `You are the synthesis agent for a multi-agent sales intelligence system.
 
 Combine the following agent outputs into the final schema below.
