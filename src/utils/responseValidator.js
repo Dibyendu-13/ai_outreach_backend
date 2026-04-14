@@ -16,7 +16,7 @@ const REQUIRED_PATHS = [
 ];
 
 export function validateResponseShape(payload) {
-  // console.log("[validator] validating response shape");
+  console.log("[validator] validating response shape");
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
     console.log("[validator] invalid payload root");
     return { valid: false, error: "Response is not an object" };

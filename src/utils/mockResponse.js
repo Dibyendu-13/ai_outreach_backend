@@ -1,14 +1,14 @@
 export function mockResponse({ industry, location, service, businessName, website, enrichment }) {
-  // console.log("[mock] generating fallback response", {
-  //   industry,
-  //   location,
-  //   service,
-  //   businessName,
-  //   website
-  // });
+  console.log("[mock] generating fallback response", {
+    industry,
+    location,
+    service,
+    businessName,
+    website
+  });
   const name = businessName || `${industry} business`;
   const contextLine = enrichment?.summary || `Local context inferred from ${location} and ${service}.`;
-  // console.log("[mock] context prepared", { name, contextLine });
+  console.log("[mock] context prepared", { name, contextLine });
   return {
     businessInsight: {
       whatTheyLikelyDo: `${name} in ${location} offering ${service}.`,
